@@ -14,12 +14,12 @@
     </ul>
   </section>
   <section class="gallery">
-    <div class="cards">
+    <div class="my-cards">
       <h2 class="cards__title">Navegue pela galeria</h2>
       <ul class="cards__list">
         {% if pictures %}
         {% for picture in pictures %}
-        <li class="card">
+        <li class="my-card">
           <a href="{% url 'image' picture.id %}">
             {% if picture.src == "" or picture.src == null %}
               <img class="card__image" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto" />
@@ -27,8 +27,8 @@
               <img class="card__image" src="{{ picture.src.url }}" alt="foto" />
             {% endif %}
           </a>
-          <span class="card__tag">{{picture.category}}</span>
-          <div class="card__info">
+          <span class="my-card__tag">{{picture.category}}</span>
+          <div class="my-card__info">
             <p class="card__title">{{picture.name}}</p>
             <div class="card__text">
               <p class="card__description">{{picture.legend}}</p>
