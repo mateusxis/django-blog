@@ -1,0 +1,14 @@
+{% load static %}
+<header class="hearder">
+  <img src="{% static '/assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
+  <div class="hearder__search">
+    <div class="search__background">
+      <form action="{% url 'search' %}">
+        <input name="term" class="search__input" type="text" placeholder="O que você procura?" />
+        <button type="submit">
+          <img class="search__icon" src="{% static '/assets/ícones/1x/search.png' %}" alt="ícone de search" />
+        </button>
+      </form>
+    </div>
+  </div>
+</header>

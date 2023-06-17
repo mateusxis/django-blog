@@ -1,37 +1,37 @@
-{% extends 'gallery/base.html' %} {% load static %} {% block content%}
+{% extends 'shared/base.html' %} {% load static %} {% block content%}
 <section class="conteudo">
   <section class="banner">
-    <img class="banner__imagem" src="{% static '/assets/imagens/Banner(2).png' %}" alt="banner Alura Space" />
-    <h1 class="banner__titulo">A galeria mais completa de fotos do espaço!</h1>
+    <img class="banner__image" src="{% static '/assets/imagens/Banner(2).png' %}" alt="banner Alura Space" />
+    <h1 class="banner__title">A galeria mais completa de fotos do espaço!</h1>
   </section>
   <section class="tags">
-    <p class="tags__titulo">Busque por tags:</p>
-    <ul class="tags__lista">
+    <p class="tags__title">Busque por tags:</p>
+    <ul class="tags__list">
       <li class="tags__tag">Nebulosa</li>
       <li class="tags__tag">Estrela</li>
       <li class="tags__tag">Galáxia</li>
       <li class="tags__tag">Planeta</li>
     </ul>
   </section>
-  <section class="galeria">
+  <section class="gallery">
     <div class="cards">
-      <h2 class="cards__titulo">Navegue pela galeria</h2>
-      <ul class="cards__lista">
+      <h2 class="cards__title">Navegue pela galeria</h2>
+      <ul class="cards__list">
         {% if pictures %}
         {% for picture in pictures %}
         <li class="card">
           <a href="{% url 'image' picture.id %}">
             {% if picture.src == "" or picture.src == null %}
-              <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto" />
+              <img class="card__image" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto" />
             {% else %}
-              <img class="card__imagem" src="{{ picture.src.url }}" alt="foto" />
+              <img class="card__image" src="{{ picture.src.url }}" alt="foto" />
             {% endif %}
           </a>
           <span class="card__tag">{{picture.category}}</span>
           <div class="card__info">
-            <p class="card__titulo">{{picture.name}}</p>
-            <div class="card__texto">
-              <p class="card__descricao">{{picture.legend}}</p>
+            <p class="card__title">{{picture.name}}</p>
+            <div class="card__text">
+              <p class="card__description">{{picture.legend}}</p>
               <span>
                 <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração" />
               </span>
@@ -40,7 +40,7 @@
         </li>
         {% endfor %}
         {% else %}
-        <div class="imagem__texto">
+        <div class="image__text">
           <p>Fotografias não encontradas</p>
         </div>
         {% endif %}

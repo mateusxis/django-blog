@@ -1,17 +1,17 @@
-{% extends 'gallery/base.html' %} {% load static %} {% block content%}
+{% extends 'shared/base.html' %} {% load static %} {% block content%}
 <section class="conteudo">
-    <section class="imagem">
-        <div class="imagem__conteudo">
+    <section class="image">
+        <div class="image__content">
             {% if picture.src == "" or picture.src == null %}
-              <img class="imagem__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto" />
+              <img class="image__image" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto" />
             {% else %}
-              <img class="imagem__imagem" src="{{ picture.src.url }}" alt="foto" />
+              <img class="image__image" src="{{ picture.src.url }}" alt="foto" />
             {% endif %}
-            <div class="imagem__info">
-                <div class="imagem__texto">
-                    <p class="imagem__titulo">{{picture.name}}</p>
-                    <p class="imagem__descricao">{{picture.legend}}</p>
-                    <p class="imagem__texto">{{picture.description}}</p>
+            <div class="image__info">
+                <div class="image__text">
+                    <p class="image__title">{{picture.name}}</p>
+                    <p class="image__description">{{picture.legend}}</p>
+                    <p class="image__text">{{picture.description}}</p>
                 </div>
             </div>
         </div>

@@ -14,13 +14,13 @@
 </head>
 
 <body>
-  <div class="pagina-inicial">
-    {% include 'gallery/partials/_header.html' %}
-    <main class="principal">
-      {% include 'gallery/partials/_navbar.html' %}
+  <div class="initial-page">
+    {% include 'shared/partials/_header.html' %}
+    <main class="main">
+      {% include 'shared/partials/_navbar.html' %}
       {% block content %}{% endblock %}
     </main>
   </div>
-  {% include 'gallery/partials/_footer.html' %}
+  {% include 'shared/partials/_footer.html' %}
 </body>
 </html>
