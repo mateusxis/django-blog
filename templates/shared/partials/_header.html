@@ -1,6 +1,11 @@
 {% load static %}
 <header class="hearder">
   <img src="{% static '/assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
+  {% for message in messages %}
+  <div class="alert alert-primary">
+    <p id="messages">{{message}}</p>
+  </div>
+  {% endfor %}
   <div class="hearder__search">
     <div class="search__background">
       <form action="{% url 'search' %}">
