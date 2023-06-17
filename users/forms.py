@@ -69,3 +69,22 @@ class RegisterForms(forms.Form):
             }
         )
     )
+
+    def clean_username(self):
+        username =  self.cleaned_data.get('username')
+
+        if username:
+            username = username.strip()
+            if " " in username:
+                raise forms.ValidationError("Espaços não são permitidos nesse campo.")
+            else:
+                return username
+            
+    def clean_confirmedPassword(self):
+        password =  self.cleaned_data.get('password')
+        confirmedPassword =  self.cleaned_data.get('confirmedPassword')
+
+        if password and confirmedPassword and password != confirmedPassword:
+            raise forms.ValidationError("Senhas não são iguais.")
+        else:
+            return confirmedPassword

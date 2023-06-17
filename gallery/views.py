@@ -12,7 +12,7 @@ def index(request):
 
 def image(request, picture_id):
     if not request.user.is_authenticated:
-        messages.error(request, "User is not authenticated")
+        messages.error(request, "User não logado")
         return redirect('login')
     
     picture = get_object_or_404(Picture, pk=picture_id) 
@@ -20,7 +20,7 @@ def image(request, picture_id):
 
 def search(request):
     if not request.user.is_authenticated:
-        messages.error(request, "User is not authenticated")
+        messages.error(request, "User não logado")
         return redirect('login')
         
     pictures = Picture.objects.order_by("-date_picture").filter(published=True)
